@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitFeed</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <span class="brand">GitFeed</span>
+  <div class="nav-links">
+    <button class="nl active" data-tab="feed">Feed</button>
+    <button class="nl" data-tab="explore">Explore</button>
+    <button class="nl" data-tab="trending">Trending</button>
+  </div>
+  <input class="nsearch" placeholder="Search..." id="searchInput" />
+  <div id="authArea"></div>
+</nav>
+<div class="body">
+  <div class="feed-col">
+    <div class="chips" id="topics">
+      <button class="chip active" data-topic="">All</button>
+      <button class="chip" data-topic="javascript">JavaScript</button>
+      <button class="chip" data-topic="python">Python</button>
+      <button class="chip" data-topic="go">Go</button>
+      <button class="chip" data-topic="machine-learning">AI / ML</button>
+      <button class="chip" data-topic="rust">Rust</button>
+      <button class="chip" data-topic="game">Games</button>
+      <button class="chip" data-topic="typescript">TypeScript</button>
+    </div>
+    <div id="feed"><div class="loading">Loading...</div></div>
+    <div id="loadMore"></div>
+  </div>
+  <div class="sidebar">
+    <div id="userCard"></div>
+    <div class="scard">
+      <div class="st">Trending topics</div>
+      <div class="ttags" id="ttags"></div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
