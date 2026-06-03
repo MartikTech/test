@@ -5,42 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitFeed</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+
 <nav class="nav">
-  <span class="brand">GitFeed</span>
-  <div class="nav-links">
-    <button class="nl active" data-tab="feed">Feed</button>
-    <button class="nl" data-tab="explore">Explore</button>
-    <button class="nl" data-tab="trending">Trending</button>
+  <div class="brand">
+    <svg width="20" height="20" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    GitFeed
   </div>
-  <input class="nsearch" placeholder="Search..." id="searchInput" />
-  <div id="authArea"></div>
+  <div class="nav-tabs">
+    <button class="nav-tab active">Feed</button>
+    <button class="nav-tab">Trending</button>
+  </div>
+  <input class="nav-search" placeholder="Search repositories..." id="searchInput" />
+  <div class="nav-auth" id="authArea"></div>
 </nav>
-<div class="body">
-  <div class="feed-col">
-    <div class="chips" id="topics">
-      <button class="chip active" data-topic="">All</button>
-      <button class="chip" data-topic="javascript">JavaScript</button>
-      <button class="chip" data-topic="python">Python</button>
-      <button class="chip" data-topic="go">Go</button>
-      <button class="chip" data-topic="machine-learning">AI / ML</button>
-      <button class="chip" data-topic="rust">Rust</button>
-      <button class="chip" data-topic="game">Games</button>
-      <button class="chip" data-topic="typescript">TypeScript</button>
-    </div>
-    <div id="feed"><div class="loading">Loading...</div></div>
-    <div id="loadMore"></div>
+
+<div class="page">
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-topic="">All</button>
+    <button class="filter-btn" data-topic="javascript">JavaScript</button>
+    <button class="filter-btn" data-topic="python">Python</button>
+    <button class="filter-btn" data-topic="go">Go</button>
+    <button class="filter-btn" data-topic="machine-learning">AI / ML</button>
+    <button class="filter-btn" data-topic="rust">Rust</button>
+    <button class="filter-btn" data-topic="typescript">TypeScript</button>
+    <button class="filter-btn" data-topic="game">Games</button>
+    <button class="filter-btn" data-topic="cli">CLI</button>
+    <button class="filter-btn" data-topic="devops">DevOps</button>
   </div>
-  <div class="sidebar">
-    <div id="userCard"></div>
-    <div class="scard">
-      <div class="st">Trending topics</div>
-      <div class="ttags" id="ttags"></div>
+  <div id="feed"><div class="loading">Loading...</div></div>
+  <div class="sentinel" id="sentinel"></div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle">README</span>
+      <button class="modal-close" id="modalClose">✕</button>
     </div>
+    <div class="modal-body" id="modalBody"><div class="modal-loading">Loading README...</div></div>
   </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
