@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@300;400;500;600;700&display=swap');
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -32,6 +34,7 @@ body {
   line-height: 1.5;
 }
 
+/* ── NAV ── */
 .nav {
   display: flex;
   align-items: center;
